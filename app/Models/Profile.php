@@ -11,4 +11,9 @@ class Profile extends Model
     asignarse de forma masiva.
     */
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    //Relación de uno a uno INVERSA (profile-user)
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
