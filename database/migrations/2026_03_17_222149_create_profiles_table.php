@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('photo', 255)->nullable();
 
-            //1ra forma (outdated)
-            /*$table->unsignedInteger('user_id')->unique();
+            //1ra forma
+            /*$table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
@@ -25,6 +25,7 @@ return new class extends Migration
             */
             //2da forma (para usar las convenciones de Laravel)
             $table->foreignId('user_id')->constrained();
+            
             $table->timestamps();
         });
     }
