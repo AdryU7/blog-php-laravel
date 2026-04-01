@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    // Changing 'local' to 'public' in order to allow access to the files.
+    'default' => env('FILESYSTEM_DISK', 'public'),
+    // Then, go to the file '.env' to apply the same changes
 
     /*
     |--------------------------------------------------------------------------

@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
     //
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    use HasFactory;
 
     //Relacion de uno a muchos INVERSA (article-user)
     public function user() {
