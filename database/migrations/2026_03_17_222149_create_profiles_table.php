@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->string('photo', 255)->nullable();
+            // ACTIVIDAD Nº1
+            $table->string('profession', 60)->nullable();
+            $table->string('about', 255)->nullable();
+            $table->string('twitter', 100)->nullable();
+            $table->string('linkedin', 100)->nullable();
+            $table->string('facebook', 100)->nullable();
 
             //1ra forma
             /*$table->unsignedBigInteger('user_id')->unique();
