@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,11 +24,18 @@ Route::resource('categories', CategoryController::class)
                 ->except('show')
                 ->names('categories');
 
+Route::resource('comments', CategoryController::class)
+                ->only('index', 'destroy')
+                ->names('comments');
+
 // View articles
 Route::get('article/{article}', [ArticleController::class, 'show'])->name('articles.show');
 
 // View articles by category
 Route::get('category/{category}', [CategoryController::class, 'detail'])->name('categories.detail');
+
+// Save comments
+Route::get('/comment', [CommentController::class, 'store'])->name('comments.store');
 
 Auth::routes();
 
