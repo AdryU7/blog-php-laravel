@@ -13,8 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <pre>
+                        <!-- 
+                            var_dump ($articles) - for /home 
+                            var_dump ($navbar) - for /home 
+                            var_dump ($categories) - for /all
+                        -->
+                        {{ var_dump ($categories) }}
+                    </pre>
                 </div>
             </div>
         </div>
