@@ -40,7 +40,7 @@ class HomeController extends Controller
         ])->paginate(3);
 
         // Show both elements in the view
-        return view('home', compact('articles', 'navbar'));
+        return view('home.index', compact('articles', 'navbar'));
     }
 
     // Show all categories

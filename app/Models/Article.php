@@ -26,4 +26,10 @@ class Article extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    // Using slug instead of id
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
