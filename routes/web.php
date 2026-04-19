@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,11 @@ Route::resource('categories', CategoryController::class)
 Route::resource('comments', CategoryController::class)
                 ->only('index', 'destroy')
                 ->names('comments');
+
+// Profiles
+Route::resource('profiles', ProfileController::class)
+                ->only('edit', 'update')
+                ->names('profiles');
 
 // View articles
 Route::get('article/{article}', [ArticleController::class, 'show'])->name('articles.show');
