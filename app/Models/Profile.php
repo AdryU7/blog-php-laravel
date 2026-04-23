@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
@@ -10,7 +11,18 @@ class Profile extends Model
     tiene que definir los campos que van a permitir poder 
     asignarse de forma masiva.
     */
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $fillable = [
+        'photo',
+        'profession',
+        'about',
+        'twitter',
+        'linkedin',
+        'facebook',
+        'user_id'
+    ];
+
+    // Conectar modelo Profile con fábricas
+    use HasFactory;
 
     //Relación de uno a uno INVERSA (profile-user)
     public function user() {
