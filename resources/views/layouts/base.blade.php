@@ -1,19 +1,13 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" href="{{ asset('img/icono.ico') }}">
 
-    <!-- Estilos de bootstrap -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" >
-
-    <!-- Estilos css generales -->
-    <link href="{{ asset('css/base/css/general.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/base/css/menu.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/base/css/footer.css') }}" rel="stylesheet">
+    <!-- Todos los estilos y scripts con Vite -->
+    @vite(['resources/css/app.css', 'resources/js/app.js',])
 
     <!-- Estilos cambiantes -->
     @yield('styles')
@@ -38,8 +32,6 @@
     </div>
     <!-- Scripts cambiantes -->
     @yield('scripts')
-    <!-- Scripts de bootstrap -->
-    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>

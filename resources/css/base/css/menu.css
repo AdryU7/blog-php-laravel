@@ -11,7 +11,6 @@
 }
 
 /* Linea de separación */
-
 hr {
     width: 85%;
     margin: 8px auto;
@@ -38,34 +37,51 @@ hr {
     font-size: 30px;
 }
 
-.nav {
-    padding: 0.6em;
+/* SOLUCIÓN: Contenedor de botones */
+.d-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important; /* Espacio entre botones */
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
 }
 
-.nav ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.d-flex li {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.nav ul li {
-    margin-left: 0.5em;
-}
-
-.nav,
+/* Botones del menú */
 .login,
-.create{
-    color: #FFF;
-    font-size: 0.7em;
-    text-transform: uppercase;
-    padding: 1em;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    background-color: #1d448e;
+.create {
+    color: #FFF !important;
+    font-size: 0.7em !important;
+    text-transform: uppercase !important;
+    padding: 1em 1.5em !important; /* Padding horizontal aumentado */
+    letter-spacing: 2px !important;
+    border-radius: 2px !important;
+    background-color: #1d448e !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    margin: 0 5px !important; /* Margen para separación */
 }
 
-.login{
-    margin-right: 3px !important;
+.login {
+    background-color: #1d448e !important;
+}
+
+.create {
+    background-color: #1d448e !important;
+}
+
+/* Efecto hover */
+.login:hover,
+.create:hover {
+    opacity: 0.9;
+    color: #FFF !important;
+    text-decoration: none !important;
 }
 
 .nav .profile {
@@ -78,23 +94,30 @@ hr {
     color: black;
 }
 
-.name-user{
+.name-user {
     font-size: 1em;
     font-weight: 700;
+}
+
+/* Dropdown del perfil */
+.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.img-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
 }
 
 /* Aquí termina la cabecera */
 
 /* 1440 x 900 */
-
 @media (max-width: 1440px) {
     .menu {
         margin: 0% 5%;
     }
-
-    .login {
-        margin-right: 8px;
-    }
-
 }
 
