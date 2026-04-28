@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         // REGISTROS DE PRUEBA CON SEEDERS
-
+        /*
         //1er registro
         User::create([
             'full_name' => 'Gian Garcia',
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'full_name' => 'Tony Mendez',
             'email' => 'tonymendez@gmail.com',
             'password' => Hash::make('12345678'),
-        ]);
+        ]);*/
         // Generar 10 registros
         User::factory(10)->create();
     }

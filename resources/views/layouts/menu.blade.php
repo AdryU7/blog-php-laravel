@@ -17,16 +17,15 @@
             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" 
                data-bs-toggle="dropdown" aria-expanded="false">
 
-                <img src="{{ Auth::user()->profile->photo ? asset('storage/' . Auth::user()->profile->photo)
+                <img src="{{ Auth::user()->profile && Auth::user()->profile->photo 
+                ? asset('storage/' . Auth::user()->profile->photo)
                 : asset('img/user-default.png') }}" alt="Profile" class="img-profile">
           
                 <span class="name-user">{{ Auth::user()->full_name }}</span>
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item"
-                        href="#">Perfil</a></li>
-                
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
                 <li><a class="dropdown-item" href="#">Ir al admin</a></li>
                 
                 <li>

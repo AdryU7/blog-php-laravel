@@ -42,4 +42,12 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    // Método para crear el perfil automáticamente
+    public function configure()
+    {
+        return $this->afterCreating(function (User $user) {
+            $user->profile()->create([]);
+        });
+    }
 }
