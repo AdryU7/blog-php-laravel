@@ -37,7 +37,7 @@ Route::get('article/{article}', [ArticleController::class, 'show'])->name('artic
 Route::get('category/{category}', [CategoryController::class, 'detail'])->name('categories.detail');
 
 // Save comments
-Route::get('/comment', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
 
 Auth::routes();
 

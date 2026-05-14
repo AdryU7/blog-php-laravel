@@ -44,9 +44,15 @@
     <h2>Comentarios</h2>
 </div>
 
+@if (Auth::check())
+    @include('subscriber.comments.create')
+@else
 <p class="alert-post">Para comentar debe iniciar sesión</p>
+@endif
 
+@if(session('success-error'))
 <div class="text-danger text-center">
-    <p class="fs-5"></p>
+    <p class="fs-5">{{ session('success-error') }}</p>
 </div>
+@endif
 @endsection
