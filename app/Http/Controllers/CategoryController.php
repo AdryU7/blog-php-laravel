@@ -100,6 +100,8 @@ class CategoryController extends Controller
 
     // Filter articles by categories
     public function detail(Category $category) {
+        $this->authorize('published', $category);
+
         $articles = Article::where([
             ['category_id', $category->id],
             ['status', '1']
@@ -107,7 +109,7 @@ class CategoryController extends Controller
           ->simplePaginate(5);
         
         $navbar = Category::where([
-            ['status', '3'],
+            ['status', '1'],
             ['is_featured', '1']
         ])->paginate(3);
 
