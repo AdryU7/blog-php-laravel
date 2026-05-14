@@ -53,6 +53,9 @@
 @if(session('success-error'))
 <div class="text-danger text-center">
     <p class="fs-5">{{ session('success-error') }}</p>
-</div>
+</div><br>
 @endif
+
+@include('subscriber.comments.show')
+
 @endsection
