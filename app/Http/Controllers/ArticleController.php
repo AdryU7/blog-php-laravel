@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -79,6 +78,9 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        // Authorize the rules of the articles that are public
+        $this->authorize('published', $article);
+
         $comments = $article->comments()->simplePaginate(5);
 
         return view('subscriber.articles.show', compact('article', 'comments'));
