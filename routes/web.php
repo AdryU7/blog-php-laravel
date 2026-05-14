@@ -16,6 +16,22 @@ Route::get('/all', [HomeController::class, 'all'])->name('home.all');
 // Admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
+// Admin routes
+Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
+    // Articles (Controller inside of single quote)
+    Route::resource('articles', 'ArticleController')
+                ->except('show')
+                ->names('articles');
+    // Categories (Controller inside of single quote)
+    Route::resource('categories', 'CategoryController')
+                ->except('show')
+                ->names('categories');
+    // Comments (Controller inside of single quote)
+    Route::resource('comments', 'CategoryController')
+                ->only('index', 'destroy')
+                ->names('comments');
+});
+
 // Simple routes by Laravel excluding the 'show' instruction
 Route::resource('articles', ArticleController::class)
                 ->except('show')

@@ -7,6 +7,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -60,5 +61,10 @@ class User extends Authenticatable
     //Relacion de uno a muchos (user-comments)
     public function comments() {
         return $this->hasMany(Comment::class);
+    }
+
+    //Metodo para mostrar la foto en adminlte
+    public function adminlte_image() {
+        return asset('storage/' . Auth::user()->profile->photo);
     }
 }

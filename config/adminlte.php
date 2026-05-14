@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Tech Company | ',
     'title_postfix' => '',
 
     /*
@@ -63,12 +63,20 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Tech</b>Company',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
+
+    /** ADRYU7's NOTE: run a command to show configurations of this template,
+     * in that way we can access directly to the base code and modify it.
+     * In this case, we are using an attribute name called 'full_name' instead
+     * of 'name', which we must give that instruction to the admin panel.
+     * 
+     * > php artisan admin:install --only=main_views --force
+     */
 
     /*
     |--------------------------------------------------------------------------
@@ -321,77 +329,46 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
+            // Change name to Dashboard
+            'text' => 'Dashboard',
+            // Change url to route
+            'route' => 'admin.index',
+            // Change icon
+            'icon' => 'fas fa-pager',
         ],
-        ['header' => 'account_settings'],
+        // Change header name
+        ['header' => 'PANEL'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
+            // Change name to Artículos
+            'text' => 'Artículos',
+            // Change url to route
+            'route' => 'articles.index',
+            // Change icon
+            'icon' => 'fas fa-poll',
+            // Hint active articles
+            'active' => ['articles*']
         ],
         [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
+            // Change name to Categorías
+            'text' => 'Categorías',
+            // Change url to route
+            'route' => 'categories.index',
+            // Change icon
+            'icon' => 'fas fa-poll',
+            // Hint active categories
+            'active' => ['categories*']
         ],
         [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+            // Change name to Comentarios
+            'text' => 'Comentarios',
+            // Change url to route
+            'route' => 'comments.index',
+            // Change icon
+            'icon' => 'fas fa-poll',
+            // Hint active comments
+            'active' => ['comments*']
         ],
+        
     ],
 
     /*
