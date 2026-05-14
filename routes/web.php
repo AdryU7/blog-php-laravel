@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -11,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 // Main
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/all', [HomeController::class, 'all'])->name('home.all');
+
+// Admin
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
 // Simple routes by Laravel excluding the 'show' instruction
 Route::resource('articles', ArticleController::class)
