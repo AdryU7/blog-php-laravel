@@ -20,7 +20,7 @@
     </div>
 
     <div class="post-author line">
-        <img src="{{ $article->user->profile->photo 
+        <img src="{{ $article->user->profile?->photo 
                      ? asset('storage/'.$article->user->profile->photo)
                      : asset('img/user-default.png') }}"
         class="img-author">
