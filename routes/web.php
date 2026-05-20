@@ -27,7 +27,7 @@ Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
                 ->except('show')
                 ->names('categories');
     // Comments (Controller inside of single quote)
-    Route::resource('comments', 'CategoryController')
+    Route::resource('comments', 'CommentController')
                 ->only('index', 'destroy')
                 ->names('comments');
 });
@@ -41,7 +41,7 @@ Route::resource('categories', CategoryController::class)
                 ->except('show')
                 ->names('categories');
 
-Route::resource('comments', CategoryController::class)
+Route::resource('comments', CommentController::class)
                 ->only('index', 'destroy')
                 ->names('comments');
 
