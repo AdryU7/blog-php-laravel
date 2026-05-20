@@ -346,7 +346,7 @@ return [
             // Change icon
             'icon' => 'fas fa-poll',
             // Hint active articles
-            'active' => ['articles*']
+            'active' => ['admin/articles*']
         ],
         [
             // Change name to Categorías
@@ -356,7 +356,7 @@ return [
             // Change icon
             'icon' => 'fas fa-poll',
             // Hint active categories
-            'active' => ['categories*']
+            'active' => ['admin/categories*']
         ],
         [
             // Change name to Comentarios
@@ -366,7 +366,7 @@ return [
             // Change icon
             'icon' => 'fas fa-poll',
             // Hint active comments
-            'active' => ['comments*']
+            'active' => ['admin/comments*']
         ],
         
     ],

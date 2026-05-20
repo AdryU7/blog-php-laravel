@@ -91,6 +91,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $this->authorize('view', $article);
+
         // ** Obtain public categories **
         $categories = Category::select(['id', 'name'])
                                 ->where('status', '1')
@@ -104,6 +106,8 @@ class ArticleController extends Controller
      */
     public function update(ArticleRequest $request, Article $article)
     {
+        $this->authorize('update', $article);
+
         // If user uploads a new image
         if($request->hasFile('image')) {
             // Delete previous image
@@ -132,6 +136,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $this->authorize('delete', $article);
+
         // Delete image from article
         if ($article->image) {
             File::delete(public_path('storage/' . $article->image));
