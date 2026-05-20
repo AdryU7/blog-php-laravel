@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         //Show categories on admin
         $categories = Category::orderBy('id', 'desc')
-                                ->simplePaginate(8);
+                                ->simplePaginate(6);
 
         return view('admin.categories.index', compact('categories'));
     }
