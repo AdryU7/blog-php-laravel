@@ -339,6 +339,11 @@ return [
         // Change header name
         ['header' => 'PANEL'],
         [
+            'text' => 'Ir al blog',
+            'route' => 'home.index',
+            'icon' => 'fa fa-home'
+        ],
+        [
             // Change name to Artículos
             'text' => 'Artículos',
             // Change url to route

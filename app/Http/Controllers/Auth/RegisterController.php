@@ -68,6 +68,16 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        // Crear perfil automáticamente al registrarse
+        $user->profile()->create([
+            'profession' => null,
+            'about' => null,
+            'photo' => null,
+            'twitter' => null,
+            'linkedin' => null,
+            'facebook' => null,
+        ]);
+
         $user->notify(new WelcomeEmail($user));
 
         return $user;

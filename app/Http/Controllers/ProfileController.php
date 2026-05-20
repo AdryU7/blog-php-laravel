@@ -22,20 +22,14 @@ class ProfileController extends Controller
     // Función para mostrar el formulario de editar perfil
     public function edit(Profile $profile)
     {
-        // Verificar que sea el dueño del perfil
-        if(Auth::id() !== $profile->user_id) {
-            abort(403);
-        }
+        $this->authorize('view', $profile);
 
         return view('subscriber.profiles.edit', compact('profile'));
     }
     //Función para aplicar la modificación de datos del perfil
     public function update(ProfileRequest $request, Profile $profile)
     {
-        // Verificar que sea el dueño del perfil
-        if(Auth::id() !== $profile->user_id) {
-            abort(403);
-        }
+        $this->authorize('update', $profile);
 
         $user = Auth::user();
 

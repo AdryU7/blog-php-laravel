@@ -11,19 +11,19 @@ class ArticlePolicy
     public function view(User $user, Article $article) {
         // Check if the authenticated user is the same who created the
         // article
-        return $user->id == $article->user_id;
+        return $user->id === $article->user_id;
     }
 
     public function update(User $user, Article $article) {
         // Check if the authenticated user is the same who created the
         // article
-        return $user->id == $article->user_id;
+        return $user->id === $article->user_id;
     }
 
     public function delete(User $user, Article $article) {
         // Check if the authenticated user is the same who created the
         // article
-        return $user->id == $article->user_id;
+        return $user->id === $article->user_id;
     }
 
     // Funcion published para definir una regla de Policy para mostrar

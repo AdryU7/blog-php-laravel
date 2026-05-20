@@ -51,3 +51,20 @@ class UserFactory extends Factory
         });
     }
 }
+
+/*
+Crear perfiles manualmente desde Tinker en caso de que el User
+no tenga uno
+
+-- bash --
+> php artisan tinker
+
+-- php --
+// Esto creará perfiles para todos los usuarios que no tengan uno
+App\Models\User::doesntHave('profile')->each(function($user) {
+    $user->profile()->create([
+        'profession' => null,
+        'about' => null,
+    ]);
+});
+*/
