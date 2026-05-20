@@ -10,13 +10,15 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="#" enctype="multipart/form-data">
-
-            <div class="form-group"><input type="hidden" name="id" value=""></div>
+        <form method="POST" action="{{ route('categories.update', $category) }}" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="form-group"><input type="hidden" name="id" value="{{ $category->id }}"></div>
 
             <div class="form-group">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control" id="name" name='name' placeholder="Nombre de la categoría" value="">
+                <input type="text" class="form-control" id="name" name='name'
+                placeholder="Nombre de la categoría" value="{{ $category->name }}">
 
                 @error('name')
                 <span class="text-danger">
@@ -27,7 +29,8 @@
 
             <div class="form-group">
                 <label for="">Slug</label>
-                <input type="text" class="form-control" id="slug" name='slug' placeholder="Nombre de la categoría" value="" readonly>
+                <input type="text" class="form-control" id="slug" name='slug' 
+                placeholder="Nombre de la categoría" value="{{ $category->slug }}" readonly>
 
                 @error('slug')
                 <span class="text-danger">
@@ -41,7 +44,7 @@
                 <input type="file" class="form-control-file mb-2" id="image" name='image'>
 
                 <div class="rounded mx-auto d-block">
-                    <img src="" style="width: 250px">
+                    <img src="{{ asset('storage/' . $category->image) }}" style="width: 250px">
                 </div>
 
                 @error('image')
@@ -56,12 +59,14 @@
             <div class="form-group">
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="">Privado</label>
-                    <input class="form-check-input ml-2" type="radio" name='status' id="status" value="0">
+                    <input class="form-check-input ml-2" type="radio" name='status' 
+                    id="status" value="0" {{ ($category->status == 0) ? 'checked' : '' }}>
                 </div>
 
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="">Público</label>
-                    <input class="form-check-input ml-2" type="radio" name='status' id="status" value="1">
+                    <input class="form-check-input ml-2" type="radio" name='status' 
+                    id="status" value="1" {{ ($category->status == 1) ? 'checked' : '' }}>
                 </div>
 
                 @error('status')
@@ -75,12 +80,14 @@
             <div class="form-group">
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">No</label>
-                    <input class="form-check-input ml-2" type="radio" name='is_featured' id="is_featured" value="0">
+                    <input class="form-check-input ml-2" type="radio" name='is_featured' 
+                    id="is_featured" value="0" {{ ($category->is_featured == 0) ? 'checked' : '' }}>
                 </div>
 
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">Si</label>
-                    <input class="form-check-input ml-2" type="radio" name='is_featured' id="is_featured" value="1">
+                    <input class="form-check-input ml-2" type="radio" name='is_featured' 
+                    id="is_featured" value="1" {{ ($category->is_featured == 1) ? 'checked' : '' }}>
                 </div>
 
                 @error('is_featured')
@@ -96,3 +103,23 @@
 </div>
 @endsection
 
+@section('js')
+<script>
+$(document).ready(function() {
+    $("#name").on('keyup keydown blur', function() {
+        var slug = $(this).val()
+            .toLowerCase()
+            .replace(/[áàäâ]/g, 'a')
+            .replace(/[éèëê]/g, 'e')
+            .replace(/[íìïî]/g, 'i')
+            .replace(/[óòöô]/g, 'o')
+            .replace(/[úùüû]/g, 'u')
+            .replace(/[ñ]/g, 'n')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+        
+        $('#slug').val(slug);
+    });
+});
+</script>
+@endsection
