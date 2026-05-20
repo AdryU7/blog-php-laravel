@@ -10,16 +10,16 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="#" enctype="multipart/form-data">
-
+        <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label for="">Nombre</label>
                 <input type="text" class="form-control" id="name" name='name' placeholder="Nombre de la categoría"
-                    value="">
+                    value="{{ old('name') }}">
 
                 @error('name')
                 <span class="text-danger">
-                    <span>* </span>
+                    <span>* {{ $message }}</span>
                 </span>
                 @enderror
             </div>
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label for="">Slug</label>
                 <input type="text" class="form-control" id="slug" name='slug' placeholder="Slug de la categoría" readonly
-                    value="">
+                    value="{{ old('slug') }}">
 
                 @error('slug')
                 <span class="text-danger">
@@ -94,3 +94,23 @@
 </div>
 @endsection
 
+@section('js')
+<script>
+$(document).ready(function() {
+    $("#name").on('keyup keydown blur', function() {
+        var slug = $(this).val()
+            .toLowerCase()
+            .replace(/[áàäâ]/g, 'a')
+            .replace(/[éèëê]/g, 'e')
+            .replace(/[íìïî]/g, 'i')
+            .replace(/[óòöô]/g, 'o')
+            .replace(/[úùüû]/g, 'u')
+            .replace(/[ñ]/g, 'n')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+        
+        $('#slug').val(slug);
+    });
+});
+</script>
+@endsection

@@ -8,10 +8,24 @@
 
 @section('content')
 
+@if(session('success-create'))
+<div class="alert alert-info">
+    {{ session('success-create') }}
+</div>
+@elseif (session('success-update'))
+<div class="alert alert-info">
+    {{ session('success-update') }}
+</div>
+@elseif (session('success-delete'))
+<div class="alert alert-info">
+    {{ session('success-delete') }}
+</div>
+@endif
+
 <div class="card">
     
     <div class="card-header">
-        <a class="btn btn-primary" href="#">Crear categoría</a>
+        <a class="btn btn-primary" href="{{ route('categories.create') }}">Crear categoría</a>
     </div>
     
     <div class="card-body">
