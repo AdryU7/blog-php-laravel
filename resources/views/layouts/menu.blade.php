@@ -24,7 +24,8 @@
             </label>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="{{ route('profiles.edit', ['profile' => Auth::user()->id]) }}">Perfil</a></li>
+                <!-- Se cambió la ruta del botón Perfil para mostrar los datos del usuario autenticado -->
+                <li><a class="dropdown-item" href="{{ route('profiles.show', ['profile' => Auth::user()->id]) }}">Perfil</a></li>
 
                 <li><a class="dropdown-item" href="{{ route('admin.index') }}">Ir al admin</a></li>
                 

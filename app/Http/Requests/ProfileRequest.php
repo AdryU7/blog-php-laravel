@@ -20,8 +20,8 @@ class ProfileRequest extends FormRequest
             'full_name' => 'required|string|min:3|max:100',
             'email' => 'required|email',
             'photo' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-            'profession' => 'nullable|string|max:60|min:3',
-            'about' => 'nullable|string|max:255|min:10',
+            'profession' => 'required|string|max:60|min:3', // La profesion ya es un campo obligatorio
+            'about' => 'required|string|max:255|min:10', // La información del perfil ya es un campo obligatorio
             'twitter' => 'nullable|string|max:100|regex:/^@?[A-Za-z0-9_]{1,15}$/', 
             'linkedin' => 'nullable|string|max:100|regex:/^https?:\/\/(www\.)?linkedin\.com\/in\/[A-Za-z0-9\-_]+$/',
             'facebook' => 'nullable|string|max:100|regex:/^https?:\/\/(www\.)?facebook\.com\/[A-Za-z0-9\.]+$/',

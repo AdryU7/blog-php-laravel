@@ -12,6 +12,9 @@ class ProfileController extends Controller
 {
     // Función para mostrar los articulos escritos por autores
     public function show(Profile $profile) {
+        // Se añadió la restricción implementada desde el Policy para que no muestre los
+        // perfiles ajenos al usuario autenticado
+        $this->authorize('view', $profile);
         // USAR LA RELACIÓN (más limpio y mantenible)
         $articles = $profile->user->articles()
             ->where('status', '1')
@@ -63,7 +66,7 @@ class ProfileController extends Controller
         $user->profile->save();
 
         // Mensaje de éxito
-        return redirect()->route('profiles.edit', $user->profile->id)
-                         ->with('success', 'Perfil actualizado correctamente');
+        return redirect()->route('profiles.show', $user->profile->id)
+                         ->with('success-update', 'Perfil actualizado correctamente');
     }
 }

@@ -47,7 +47,8 @@ Route::resource('comments', CommentController::class)
 
 // Profiles
 Route::resource('profiles', ProfileController::class)
-                ->only('edit', 'update')
+                // Se incluyó la ruta 'show' para mostrar los datos del perfil del usuario
+                ->only('show', 'edit', 'update')
                 ->names('profiles');
 
 // View articles
