@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +22,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //LLamar al seeder
-        $this->call(UserSeeder::class);
+        $this->call(RoleSeeder::class); // Create the roles first
+        $this->call(UserSeeder::class); // Then create the users and the rest of models
 
         //Storage: Delete folders, and then create them again
         Storage::deleteDirectory('articles');
@@ -30,8 +33,8 @@ class DatabaseSeeder extends Seeder
 
         //Factories
         Category::factory(8)->create();
-        Article::factory(20)->create();
-        Comment::factory(20)->create();
+        Article::factory(40)->create();
+        Comment::factory(50)->create();
 
         //Change provider in 'vendor/fakerphp/src/Faker/Provider/Image.php'
         // -> public const BASE_URL = 'https://placehold.jp';
