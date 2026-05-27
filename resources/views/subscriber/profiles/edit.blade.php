@@ -75,7 +75,7 @@
             <div class="input-content">
                 <label for="profession">Profesión</label>
                 <input type="text" name="profession" placeholder="Escribe tu profesión"
-                value="{{ $profile->user->profession }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
+                value="{{ $profile->profession }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
                 <!-- Mensaje de error -->
                 @error('profession')
                 <span class="text-danger">
@@ -87,7 +87,7 @@
             <div class="input-content">
                 <label for="about">Sobre mí</label>
                 <input type="text" name="about" placeholder="Cuéntanos un poco sobre tí"
-                value="{{ $profile->user->about }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
+                value="{{ $profile->about }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
                 <!-- Mensaje de error -->
                 @error('about')
                 <span class="text-danger">
@@ -99,7 +99,7 @@
             <div class="input-content">
                 <label for="facebook">Facebook</label>
                 <input type="text" name="facebook" placeholder="Comparte tu enlace de Facebook"
-                value="{{ $profile->user->facebook }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
+                value="{{ $profile->facebook }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
                 <!-- Mensaje de error -->
                 @error('facebook')
                 <span class="text-danger">
@@ -111,7 +111,7 @@
             <div class="input-content">
                 <label for="twitter">Twitter</label>
                 <input type="text" name="twitter" placeholder="Comparte tu enlace de Twitter"
-                value="{{ $profile->user->twitter }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
+                value="{{ $profile->twitter }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
                 <!-- Mensaje de error -->
                 @error('twitter')
                 <span class="text-danger">
@@ -123,7 +123,7 @@
             <div class="input-content">
                 <label for="linkedin">Linkedin</label>
                 <input type="text" name="linkedin" placeholder="Comparte tu enlace de Linkedin"
-                value="{{ $profile->user->linkedin }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
+                value="{{ $profile->linkedin }}" autofocus> <!-- Dar como valor el campo definido en el controlador -->
                 <!-- Mensaje de error -->
                 @error('linkedin')
                 <span class="text-danger">

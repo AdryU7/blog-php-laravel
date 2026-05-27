@@ -28,17 +28,17 @@
         <!-- Código para acceder al nombre del usuario -->
         <p>Nombre: {{ $profile->user->full_name }}</p>
         <!-- Código para acceder a la profesión del usuario -->
-        <p>Profesion: {{ $profile->user->profession }}</p>
+        <p>Profesion: <i>{{ $profile->profession ?? 'No contiene' }}</i></p>
         <!-- Código para acceder a la información del usuario -->
-        <p>Sobre mi: {{ $profile->user->about }}</p>
+        <p>Sobre mi: <i>{{ $profile->about ?? 'No contiene' }}</i></p>
         <div class="extra">
             <!-- Enlaces de las redes sociales -->
             {{-- Código para llamar a la url de la cuenta de Facebook del usuario --}}
-            <a href="{{ $profile->user->facebook }}" target="_blank" class="social">Facebook</a>
+            <a href="{{ $profile->facebook }}" target="_blank" class="social">Facebook</a>
             {{-- Código para llamar a la url de la cuenta de Twitter del usuario --}}
-            <a href="{{ $profile->user->twitter }}" target="_blank" class="social">Twitter</a>
+            <a href="{{ $profile->twitter }}" target="_blank" class="social">Twitter</a>
             {{-- Código para llamar a la url de la cuenta de Linkedin del usuario --}}
-            <a href="{{ $profile->user->linkedin }}" target="_blank" class="social">Linkedin</a>
+            <a href="{{ $profile->linkedin }}" target="_blank" class="social">Linkedin</a>
         </div>
     </div>
     <!-- Aplicando la condición para verificar si el perfil del usuario coincide con su ID
