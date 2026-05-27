@@ -30,6 +30,9 @@ Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
     Route::resource('comments', 'CommentController')
                 ->only('index', 'destroy')
                 ->names('comments');
+    Route::resource('users', 'UserController')
+                ->except('create', 'store', 'show')
+                ->names('users');
 });
 
 // Simple routes by Laravel excluding the 'show' instruction
