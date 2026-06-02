@@ -389,7 +389,17 @@ return [
             'active' => ['admin/users*'],
             'can' => 'users.index' // Permissions
         ],
-        
+        [
+            // Change name to Roles
+            'text' => 'Roles',
+            // Change url to route
+            'route' => 'roles.index',
+            // Change icon
+            'icon' => 'fas fa-lock',
+            // Hint active comments
+            'active' => ['admin/roles*'],
+            'can' => 'roles.index' // Permissions
+        ],
     ],
 
     /*
