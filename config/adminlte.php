@@ -335,13 +335,15 @@ return [
             'route' => 'admin.index',
             // Change icon
             'icon' => 'fas fa-pager',
+            // Permissions
+            'can' => 'admin.index'
         ],
         // Change header name
         ['header' => 'PANEL'],
         [
             'text' => 'Ir al blog',
             'route' => 'home.index',
-            'icon' => 'fa fa-home'
+            'icon' => 'fa fa-home',
         ],
         [
             // Change name to Artículos
@@ -351,7 +353,8 @@ return [
             // Change icon
             'icon' => 'fas fa-book',
             // Hint active articles
-            'active' => ['admin/articles*']
+            'active' => ['admin/articles*'],
+            'can' => 'articles.index' // Permissions
         ],
         [
             // Change name to Categorías
@@ -361,7 +364,8 @@ return [
             // Change icon
             'icon' => 'fas fa-bookmark',
             // Hint active categories
-            'active' => ['admin/categories*']
+            'active' => ['admin/categories*'],
+            'can' => 'categories.index' // Permissions
         ],
         [
             // Change name to Comentarios
@@ -371,7 +375,8 @@ return [
             // Change icon
             'icon' => 'fas fa-comments',
             // Hint active comments
-            'active' => ['admin/comments*']
+            'active' => ['admin/comments*'],
+            'can' => 'comments.index' // Permissions
         ],
         [
             // Change name to Usuario
@@ -381,7 +386,8 @@ return [
             // Change icon
             'icon' => 'fas fa-users',
             // Hint active comments
-            'active' => ['admin/users*']
+            'active' => ['admin/users*'],
+            'can' => 'users.index' // Permissions
         ],
         
     ],

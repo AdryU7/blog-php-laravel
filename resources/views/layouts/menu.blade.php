@@ -26,9 +26,9 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <!-- Se cambió la ruta del botón Perfil para mostrar los datos del usuario autenticado -->
                 <li><a class="dropdown-item" href="{{ route('profiles.show', ['profile' => Auth::user()->id]) }}">Perfil</a></li>
-
+                @can('admin.index')
                 <li><a class="dropdown-item" href="{{ route('admin.index') }}">Ir al admin</a></li>
-                
+                @endcan
                 <li>
                     <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display: none;">
                     @csrf
