@@ -32,9 +32,14 @@ Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
     Route::resource('comments', 'CommentController')
                 ->only('index', 'destroy')
                 ->names('comments');
+    // Users (Controller inside of single quote)
     Route::resource('users', 'UserController')
                 ->except('create', 'store', 'show')
                 ->names('users');
+    //Roles
+    Route::resource('roles', 'RoleController')
+              ->except('show')
+              ->names('roles');
 });
 
 // Simple routes by Laravel excluding the 'show' instruction
