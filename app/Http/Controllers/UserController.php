@@ -8,6 +8,13 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    // Protecting the routes
+    public function __construct() {
+        $this->middleware('can:users.index')->only('index');
+        $this->middleware('can:users.edit')->only('edit', 'update');
+        $this->middleware('can:users.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

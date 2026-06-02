@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
+    // Protecting the routes
+    public function __construct() {
+        $this->middleware('can:categories.index')->only('index');
+        $this->middleware('can:categories.create')->only('create', 'store');
+        $this->middleware('can:categories.edit')->only('edit', 'update');
+        $this->middleware('can:categories.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

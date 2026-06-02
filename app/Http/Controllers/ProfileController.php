@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
+    // Protecting the routes
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     // Función para mostrar los articulos escritos por autores
     public function show(Profile $profile) {
         // Se añadió la restricción implementada desde el Policy para que no muestre los
