@@ -375,7 +375,7 @@ return [
         ],
         [
             // Change name to Usuario
-            'text' => 'Usuario',
+            'text' => 'Usuarios',
             // Change url to route
             'route' => 'users.index',
             // Change icon
