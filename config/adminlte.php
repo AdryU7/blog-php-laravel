@@ -349,7 +349,7 @@ return [
             // Change url to route
             'route' => 'articles.index',
             // Change icon
-            'icon' => 'fas fa-poll',
+            'icon' => 'fas fa-book',
             // Hint active articles
             'active' => ['admin/articles*']
         ],
@@ -359,7 +359,7 @@ return [
             // Change url to route
             'route' => 'categories.index',
             // Change icon
-            'icon' => 'fas fa-poll',
+            'icon' => 'fas fa-bookmark',
             // Hint active categories
             'active' => ['admin/categories*']
         ],
@@ -369,9 +369,19 @@ return [
             // Change url to route
             'route' => 'comments.index',
             // Change icon
-            'icon' => 'fas fa-poll',
+            'icon' => 'fas fa-comments',
             // Hint active comments
             'active' => ['admin/comments*']
+        ],
+        [
+            // Change name to Usuario
+            'text' => 'Usuario',
+            // Change url to route
+            'route' => 'users.index',
+            // Change icon
+            'icon' => 'fas fa-users',
+            // Hint active comments
+            'active' => ['admin/users*']
         ],
         
     ],
